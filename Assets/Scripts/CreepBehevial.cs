@@ -20,7 +20,6 @@ public class CreepBehevial : MonoBehaviour
         }
         if (collision.tag == "Player")
         {
-
             objectPool.RecycleCreep(gameObject);
         }
     }

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 178167867}
   m_Layer: 0
   m_Name: BottomBorder
-  m_TagString: Border
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 583084480}
   m_Layer: 0
   m_Name: Borders
-  m_TagString: Border
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583084479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22299154, y: 1.0633793, z: 0.055826977}
+  m_LocalPosition: {x: 0.22299154, y: 0.9, z: 0.055826977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -403,8 +403,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623845696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.589692, y: -0.9595793, z: -0.055826977}
-  m_LocalScale: {x: 0.5123808, y: 9.879421, z: 1.1503}
+  m_LocalPosition: {x: -11.589692, y: -1.0787, z: -0.055826977}
+  m_LocalScale: {x: 0.5123808, y: 10.001926, z: 1.1503}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 583084480}
@@ -519,7 +519,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creepPrefabs:
   - {fileID: 289591277622960898, guid: 12ea2efd025cecd449b803fc5db99547, type: 3}
-  poolSize: 5
+  - {fileID: 6226040207962736748, guid: bf16ee9f49afe7347a388c9d8e50148d, type: 3}
+  - {fileID: 6792217963981393704, guid: 8a5c27602c303ab4ba13917a43a77859, type: 3}
+  poolSize: 8
   spawnRate: 1
   maxX: 3.5
   Y: -3.2

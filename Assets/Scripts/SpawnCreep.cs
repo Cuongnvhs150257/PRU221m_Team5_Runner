@@ -20,7 +20,7 @@ public class SpawnCreep : MonoBehaviour
 
         float randomX = Random.Range(minX, maxX);
 
-        // Kh?i t?o pool ban ??u v?i s? l??ng creep t?i ?a
+        
         for (int i = 0; i < poolSize; i++)
         {
             GameObject creep = Instantiate(creepPrefabs[Random.Range(0, creepPrefabs.Length)], transform.position + new Vector3(randomX, Y, 0), transform.rotation);
