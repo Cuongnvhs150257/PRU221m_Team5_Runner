@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class CreepBehevial : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private SpawnCreep objectPool;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        objectPool = FindObjectOfType<SpawnCreep>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,13 +16,12 @@ public class CreepBehevial : MonoBehaviour
 
         if (collision.tag == "Border")
         {
-
-            Destroy(this.gameObject);
+            objectPool.RecycleCreep(gameObject);
         }
         if (collision.tag == "Player")
         {
 
-            Destroy(this.gameObject);
+            objectPool.RecycleCreep(gameObject);
         }
     }
 }
