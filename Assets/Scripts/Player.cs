@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float playerSpeed;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
+    public int score;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     {
         float directionY = Input.GetAxisRaw("Vertical");
         playerDirection = new Vector2(0, directionY).normalized;
+
+        Debug.Log(score);
         
     }
 
