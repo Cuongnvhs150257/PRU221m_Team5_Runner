@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnCreep : MonoBehaviour
+public class SpawnFlyCreep : MonoBehaviour
 {
     public GameObject[] creepPrefabs;
     public int poolSize = 10;
@@ -20,7 +20,7 @@ public class SpawnCreep : MonoBehaviour
 
         float randomX = Random.Range(minX, maxX);
 
-        
+
         for (int i = 0; i < poolSize; i++)
         {
             GameObject creep = Instantiate(creepPrefabs[Random.Range(0, creepPrefabs.Length)]);

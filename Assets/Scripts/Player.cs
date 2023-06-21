@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Text MyscoreText;
     private Animator animator;
     bool isJumping = false;
     public float playerSpeed;
@@ -16,12 +18,13 @@ public class Player : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
+        MyscoreText.text = "Score: " + score.ToString(); 
     }
 
     // Update is called once per frame
     void Update()
     {
+        MyscoreText.text = "Score: " + score.ToString();
         float directionY = Input.GetAxisRaw("Vertical");
        
         playerDirection = new Vector2(0, directionY).normalized;
