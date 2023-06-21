@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 178167867}
   m_Layer: 0
   m_Name: BottomBorder
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,6 +466,8 @@ MonoBehaviour:
   MyscoreText: {fileID: 43269687}
   playerSpeed: 10
   score: 0
+  jump: 8000
+  isGrounded: 1
 --- !u!61 &495912507
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -507,7 +509,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 20
+  m_GravityScale: 25
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 playerDirection;
     public int score;
+    public float jump;
+    public bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -25,20 +27,17 @@ public class Player : MonoBehaviour
     void Update()
     {
         MyscoreText.text = "Score: " + score.ToString();
-        float directionY = Input.GetAxisRaw("Vertical");
+        //float directionY = Input.GetAxisRaw("Vertical");
        
-        playerDirection = new Vector2(0, directionY).normalized;
-        if (Input.GetKeyDown(KeyCode.W))
+        //playerDirection = new Vector2(0, directionY).normalized;
+        if (Input.GetKeyDown(KeyCode.W) &&isGrounded==true)
         {
-            // ??i giá tr? c?a bi?n isJumping
+            rb.AddForce(Vector2.up * jump);
             isJumping = !isJumping;
-
-            // N?u isJumping là true thì chuy?n sang animator Jump
             if (isJumping)
             {
                 animator.Play("Player_Jump");
             }
-            // Ng??c l?i n?u isJumping là false thì chuy?n sang animator Run
             else
             {
                 animator.Play("Player_Run");
@@ -48,6 +47,23 @@ public class Player : MonoBehaviour
         Debug.Log(score);
         
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        
+            if (other.gameObject.CompareTag("Ground"))
+            {
+                isGrounded = false;
+            }
+        
+    }
+
 
     void FixedUpdate()
     {
