@@ -15,6 +15,13 @@ public class Player : MonoBehaviour
     public float jump;
     public bool isGrounded;
 
+
+    //
+    public float speed = 50f;
+    public float topY = 1000f;
+    public float bottomY = -5f;
+    private bool movingUp = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,15 +32,47 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {          
         MyscoreText.text = "Score: " + score.ToString();
-        //float directionY = Input.GetAxisRaw("Vertical");
-       
-        //playerDirection = new Vector2(0, directionY).normalized;
-        if (Input.GetKeyDown(KeyCode.W) &&isGrounded==true)
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jump);
+
+            {
+            //animation
             isJumping = !isJumping;
+            if (isJumping)
+            {
+                animator.Play("Player_Jump");
+            }
+            else
+                animator.Play("Player_Run");
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
+        {
+            Debug.Log("he");
+            if (movingUp)
+            {
+                rb.transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, topY), speed * Time.deltaTime);
+                if (rb.transform.position.y >= topY)
+                {
+                    movingUp = false;
+                }
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, bottomY), speed * Time.deltaTime);
+                if (transform.position.y <= bottomY)
+                {
+                    movingUp = true;
+                }
+            }
+
+            //animation
+            isJumping = !isJumping; 
             if (isJumping)
             {
                 animator.Play("Player_Jump");
@@ -44,7 +83,8 @@ public class Player : MonoBehaviour
             }
         }
 
-        Debug.Log(score);
+
+
         
     }
     private void OnCollisionEnter2D(Collision2D other)
