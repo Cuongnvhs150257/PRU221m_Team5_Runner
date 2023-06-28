@@ -992,6 +992,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1356231364}
     m_Modifications:
+    - target: {fileID: 8541060189534147875, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
+      propertyPath: topY
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
+      propertyPath: bottomY
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
       propertyPath: MyscoreText
       value: 

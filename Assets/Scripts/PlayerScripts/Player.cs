@@ -17,9 +17,9 @@ public class Player : MonoBehaviour
 
 
     //
-    public float speed = 50f;
-    public float topY = 1000f;
-    public float bottomY = -5f;
+    public float speed;
+    public float topY;
+    public float bottomY;
     private bool movingUp = true;
 
     // Start is called before the first frame update
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     {          
         MyscoreText.text = "Score: " + score.ToString();
 
+        /*
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jump);
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
                 animator.Play("Player_Run");
             }
         }
+        */
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
         {
@@ -64,11 +66,13 @@ public class Player : MonoBehaviour
             }
             else
             {
+                
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, bottomY), speed * Time.deltaTime);
                 if (transform.position.y <= bottomY)
                 {
                     movingUp = true;
                 }
+                
             }
 
             //animation
@@ -105,8 +109,4 @@ public class Player : MonoBehaviour
     }
 
 
-    void FixedUpdate()
-    {
-       rb.velocity = new Vector2(0, playerDirection.y * playerSpeed); 
-    }
 }
