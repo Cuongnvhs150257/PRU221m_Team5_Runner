@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     //private MonsterFactory monsterFactory;
 
-    public List<MonsterAbstractFactory> monsterFactories;
+    public MonsterAbstractFactory monsterFactories;
 
 
     public int poolSize = 10;
@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
 
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject monster = monsterFactories[Random.Range(0,2)].CreateMonster();
+            GameObject monster = monsterFactories.CreateMonster();
             monster.SetActive(false);
             creepPool.Add(monster);
         }

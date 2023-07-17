@@ -838,9 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f371fcd11139a2459f34e5af79c89db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterFactories:
-  - {fileID: 430037317724757847, guid: 978256e6d5ac35144890e24f2f63aa42, type: 3}
-  - {fileID: 6430078720813642077, guid: 2fc62b9a463daa64cb8008b24e207cf7, type: 3}
+  monsterFactories: {fileID: 430037317724757847, guid: 978256e6d5ac35144890e24f2f63aa42, type: 3}
   poolSize: 8
   spawnRate: 1
   maxX: 3.5

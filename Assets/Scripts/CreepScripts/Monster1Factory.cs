@@ -6,15 +6,21 @@ public class Monster1Factory : MonsterAbstractFactory
 {
     private GameObject prefab;
 
-    private void Awake()
-    {
-        Debug.Log(1);
-        prefab = Resources.Load<GameObject>("Creep1");
-    }
+    public List<string> monsterNames;
 
     public override GameObject CreateMonster()
     {
-        prefab = Resources.Load<GameObject>("Creep1");
+        monsterNames = new List<string>();
+
+        monsterNames.Add("Creep1");
+        monsterNames.Add("FlyCreep");
+        monsterNames.Add("ObstacleObject");
+        monsterNames.Add("ObstacleObject2");
+
+        for (int i = 0; i < monsterNames.Count; i++)
+        {
+            prefab = Resources.Load<GameObject>(monsterNames[Random.Range(0, monsterNames.Count)]);
+        }
         GameObject monster = Instantiate(prefab);
         //Monster monster = monsterGO.GetComponent<Monster>();
         return monster;
