@@ -975,20 +975,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
       propertyPath: topY
-      value: 60
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
       propertyPath: speed
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
       propertyPath: bottomY
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
+      propertyPath: jumpHeight
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
       propertyPath: MyscoreText
       value: 
       objectReference: {fileID: 43269687}
+    - target: {fileID: 8541060189534147877, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
+      propertyPath: jumpDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8541060189534147878, guid: 9971ca015c3b2a9428b31ca2ea9073a7, type: 3}
       propertyPath: m_RootOrder
       value: 4

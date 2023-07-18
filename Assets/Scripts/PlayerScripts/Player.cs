@@ -17,17 +17,16 @@ public class Player : MonoBehaviour
 
 
     //
-    public float speed;
-    public float topY;
-    public float bottomY;
-    private bool movingUp = true;
-
+    public float jumpSpeed = 3f;
+    public float maxY;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        MyscoreText.text = "Score: " + score.ToString(); 
+        MyscoreText.text = "Score: " + score.ToString();
+        maxY = rb.transform.position.y + 3.5f;
+
     }
 
     // Update is called once per frame
@@ -53,44 +52,27 @@ public class Player : MonoBehaviour
         }
         */
 
+
         if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
         {
-            Debug.Log("he");
-            if (movingUp)
-            {
-                rb.transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, topY), speed * Time.deltaTime);
-                if (rb.transform.position.y >= topY)
-                {
-                    movingUp = false;
-                }
-            }
-            else
-            {
-                
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, bottomY), speed * Time.deltaTime);
-                if (transform.position.y <= bottomY)
-                {
-                    movingUp = true;
-                }
-                
-            }
+            rb.gravityScale = 0;
+            animator.Play("Player_Jump");
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);        
 
-            //animation
-            isJumping = !isJumping; 
-            if (isJumping)
-            {
-                animator.Play("Player_Jump");
-            }
-            else
-            {
-                animator.Play("Player_Run");
-            }
+        }
+
+
+        if (rb.position.y >= maxY)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);        
+
         }
 
 
 
-        
     }
+
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
