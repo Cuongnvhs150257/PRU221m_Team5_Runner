@@ -214,6 +214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 265797214518990052, guid: 7e76c93fd63fc894b91c8a0880450050, type: 3}
+      propertyPath: m_Text
+      value: 'Your Score: 0'
+      objectReference: {fileID: 0}
     - target: {fileID: 423405773351914945, guid: 7e76c93fd63fc894b91c8a0880450050, type: 3}
       propertyPath: m_Name
       value: End

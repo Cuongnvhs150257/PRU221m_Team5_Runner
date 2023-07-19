@@ -31,10 +31,14 @@ public class HealthManager : MonoBehaviour
         }
         if (health <= 0)
         {
-            Time.timeScale = 0;
-            SceneManager.LoadScene("EndMenu");
+            //SceneManager.LoadScene("EndMenu");
+            End();
         }
     }
-    
+    public void End()
+    {
+        Destroy(this.gameObject);
+        MenuManager.GoToMenu(MenuName.End);
+    }
    
 }

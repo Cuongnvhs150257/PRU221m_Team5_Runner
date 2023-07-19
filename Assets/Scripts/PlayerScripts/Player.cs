@@ -85,5 +85,8 @@ public class Player : MonoBehaviour
             }      
     }
 
-
+    public void HandlePauseClick()
+    {
+        MenuManager.GoToMenu(MenuName.Pause);
+    }
 }

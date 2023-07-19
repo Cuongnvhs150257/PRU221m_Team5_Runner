@@ -14,16 +14,17 @@ public class EndMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-        AudioListener.volume = 0.2f;
+        //AudioListener.volume = 0.2f;
 
         GameObject getScore = GameObject.FindGameObjectWithTag("Player");
         //timeGame.text = "Survival time: " + getScore.transform.GetComponent<TimerMenu>().formattedTime;
 
-        //levelGame.text = "Your Level: " + getScore.transform.GetComponent<ManageLevel>().level.ToString();
+        levelGame.text = "Your Score: " + getScore.transform.GetComponent<Player>().score.ToString();
     }
 
     public void HandleRestartButtonOnClickEvent()
     {
+        
         Time.timeScale = 1;
         SceneManager.LoadScene("GamePlay");
         Destroy(gameObject);

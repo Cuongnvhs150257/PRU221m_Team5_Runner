@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1238612610364456640}
   m_Layer: 0
   m_Name: FlyCreep
-  m_TagString: Untagged
+  m_TagString: FlyCreep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

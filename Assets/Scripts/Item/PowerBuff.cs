@@ -34,7 +34,7 @@ public class PowerBuff : ItemEffect
         else
         {
             Debug.Log("Ice Activated");
-            GameObject[] listEnemy = GameObject.FindGameObjectsWithTag("enemies");
+            //GameObject[] listEnemy = GameObject.FindGameObjectsWithTag("enemies");
             //for (int i = 0; i < listEnemy.Length; i++)
             //{
                
