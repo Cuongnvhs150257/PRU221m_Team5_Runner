@@ -17,7 +17,12 @@ public class AppleScripts : MonoBehaviour,IItem
         {
             objectPool.RecycleItem(gameObject);
 
-        } 
+        }
+        if (collision.gameObject.CompareTag("Border"))
+        {
+            objectPool.RecycleItem(gameObject);
+
+        }
     }
 
   

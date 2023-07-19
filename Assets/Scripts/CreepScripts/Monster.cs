@@ -18,6 +18,15 @@ public class Monster : MonoBehaviour, IAnimal
             objectPool.RecycleCreep(gameObject);
             
         }
+        if (collision.gameObject.CompareTag("Border"))
+        {
+            objectPool.RecycleCreep(gameObject);
+
+            GameObject takedame = GameObject.FindGameObjectWithTag("Player");
+
+            takedame.transform.GetComponent<Player>().score += 1;
+        }
+
         Attack();
     }
 
