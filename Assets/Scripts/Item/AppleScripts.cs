@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppleScripts : MonoBehaviour,IItem
+public class AppleScripts : MonoBehaviour
 {
     private SpawnItem objectPool;
 
@@ -26,10 +26,6 @@ public class AppleScripts : MonoBehaviour,IItem
 
         }
     }
-
-  
-    public void Skill()
-    {
-        throw new System.NotImplementedException();
-    }
+ 
+    
 }

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeartScript : MonoBehaviour,IItem
+public class HeartScript : MonoBehaviour
 {
     private SpawnItem objectPool;
-
+    public ItemEffect itemEffect;
     public void Start()
     {
         objectPool = FindObjectOfType<SpawnItem>();
@@ -16,13 +16,7 @@ public class HeartScript : MonoBehaviour,IItem
         if (collision.gameObject.CompareTag("Player"))
         {
             objectPool.RecycleItem(gameObject);
-            GameObject health = GameObject.FindGameObjectWithTag("Player");
-            var healthcurrent = health.transform.GetComponent<HealthManager>().health;
-            if (healthcurrent < 3)
-            {
-                health.transform.GetComponent<HealthManager>().health = healthcurrent + 1;
-            }
-
+            itemEffect.Activate(collision.gameObject);
 
         }
         if (collision.gameObject.CompareTag("Border"))
@@ -32,9 +26,4 @@ public class HeartScript : MonoBehaviour,IItem
         }
     }
 
-
-    public void Skill()
-    {
-        throw new System.NotImplementedException();
-    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class HealthManager : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    public bool isShield = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         foreach(Image img in hearts)
         {
             img.sprite = emptyHeart;
@@ -26,6 +29,12 @@ public class HealthManager : MonoBehaviour
         {
             hearts[i].sprite = fullHeart;
         }
-
+        if (health <= 0)
+        {
+            Time.timeScale = 0;
+            SceneManager.LoadScene("EndMenu");
+        }
     }
+    
+   
 }

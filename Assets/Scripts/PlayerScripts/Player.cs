@@ -7,12 +7,8 @@ public class Player : MonoBehaviour
 {
     public Text MyscoreText;
     private Animator animator;
-    bool isJumping = false;
-    public float playerSpeed;
     private Rigidbody2D rb;
-    private Vector2 playerDirection;
     public int score;
-    public float jump;
     public bool isGrounded;
 
 
@@ -86,8 +82,7 @@ public class Player : MonoBehaviour
             if (other.gameObject.CompareTag("Ground"))
             {
                 isGrounded = false;
-            }
-        
+            }      
     }
 
 

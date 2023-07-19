@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldScript : MonoBehaviour,IItem
+public class ShieldScript : MonoBehaviour
 {
+    public ItemEffect itemEffect;
     private SpawnItem objectPool;
 
     public void Start()
@@ -16,6 +17,7 @@ public class ShieldScript : MonoBehaviour,IItem
         if (collision.gameObject.CompareTag("Player"))
         {
             objectPool.RecycleItem(gameObject);
+            itemEffect.Activate(collision.gameObject);
 
         }
         if (collision.gameObject.CompareTag("Border"))
@@ -25,9 +27,4 @@ public class ShieldScript : MonoBehaviour,IItem
         }
     }
 
-
-    public void Skill()
-    {
-        throw new System.NotImplementedException();
-    }
 }
