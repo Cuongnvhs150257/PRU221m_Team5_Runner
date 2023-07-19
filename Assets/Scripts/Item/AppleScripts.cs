@@ -16,6 +16,8 @@ public class AppleScripts : MonoBehaviour,IItem
         if (collision.gameObject.CompareTag("Player"))
         {
             objectPool.RecycleItem(gameObject);
+            GameObject takescore = GameObject.FindGameObjectWithTag("Player");
+            takescore.transform.GetComponent<Player>().score += 5;
 
         }
         if (collision.gameObject.CompareTag("Border"))

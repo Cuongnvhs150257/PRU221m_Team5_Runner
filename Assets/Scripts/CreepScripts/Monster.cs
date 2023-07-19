@@ -25,6 +25,10 @@ public class Monster : MonoBehaviour, IAnimal
             GameObject takedame = GameObject.FindGameObjectWithTag("Player");
 
             takedame.transform.GetComponent<Player>().score += 1;
+
+            var healthcurrent = takedame.transform.GetComponent<HealthManager>().health;
+
+            takedame.transform.GetComponent<HealthManager>().health = healthcurrent - 1;
         }
 
         Attack();
