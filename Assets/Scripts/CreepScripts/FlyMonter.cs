@@ -38,7 +38,7 @@ public class FlyMonter : MonoBehaviour, IAnimal
 
     public void Attack()
     {
-        Debug.Log("FlyMonster attacks!");
+      
 
     }
 }

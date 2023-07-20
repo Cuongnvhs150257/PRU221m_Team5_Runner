@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public int score;
     public bool isGrounded;
-
+    //
+    private CharacterState currentState;
 
     //
     public float jumpSpeed = 3f;
@@ -18,6 +19,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //set idle state
+        ChangeState(new IdleState());
+
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         MyscoreText.text = "Score: " + score.ToString();
@@ -27,45 +31,16 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {          
+    {
         MyscoreText.text = "Score: " + score.ToString();
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
-        {
-            rb.AddForce(Vector2.up * jump);
-
-            {
-            //animation
-            isJumping = !isJumping;
-            if (isJumping)
-            {
-                animator.Play("Player_Jump");
-            }
-            else
-                animator.Play("Player_Run");
-            }
-        }
-        */
-
-
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
-        {
-            rb.gravityScale = 0;
-            animator.Play("Player_Jump");
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);        
-
-        }
-
-
         if (rb.position.y >= maxY)
         {
-            rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);        
-
+            rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);
         }
-
-
-
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            ChangeState(new JumpState());
+        }
     }
 
 
@@ -88,5 +63,18 @@ public class Player : MonoBehaviour
     public void HandlePauseClick()
     {
         MenuManager.GoToMenu(MenuName.Pause);
+    }
+
+    public void ChangeState(CharacterState newState)
+    {      
+        currentState = newState;
+        currentState.EnterState(this);
+    }
+    public void Jump()
+    {
+       
+            animator.Play("Player_Jump");
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+       
     }
 }

@@ -37,7 +37,7 @@ public class Monster : MonoBehaviour, IAnimal
 
     public void Attack()
     {
-        Debug.Log("Monster attacks!");
+       
     }
 }
 
