@@ -33,10 +33,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         MyscoreText.text = "Score: " + score.ToString();
-        if (rb.position.y >= maxY)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);
-        }
+        //if (rb.position.y >= maxY)
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);
+        //}
         if (Input.GetKeyDown(KeyCode.W))
         {
             ChangeState(new JumpState());

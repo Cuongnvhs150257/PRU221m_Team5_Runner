@@ -8,8 +8,6 @@ public class IdleState : CharacterState
     public override void EnterState(Player character)
     {
         base.EnterState(character);
-        // C?p nh?t trng thái và animation choân v?t khi vào trng thái Idle
-        animator.Play("Player_Idle");
     }
 
     public override void Update()
