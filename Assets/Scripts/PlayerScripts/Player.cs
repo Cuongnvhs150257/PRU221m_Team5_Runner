@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +11,8 @@ public class Player : MonoBehaviour
     public bool isGrounded;
     //
     private CharacterState currentState;
+
+    private IInputAdapter _inputAdapter;
 
     //
     public float jumpSpeed = 3f;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
         MyscoreText.text = "Score: " + score.ToString();
         maxY = rb.transform.position.y + 3.5f;
 
+        _inputAdapter = new KeyboardInputAdapter();
     }
 
     // Update is called once per frame
@@ -39,7 +41,14 @@ public class Player : MonoBehaviour
         //}
         if (Input.GetKeyDown(KeyCode.W))
         {
-            ChangeState(new JumpState());
+            float jumpInput = _inputAdapter.GetJumpInput();
+
+
+
+            if(jumpInput > 0)
+            {
+                ChangeState(new JumpState());
+            }
         }
     }
 
@@ -72,9 +81,9 @@ public class Player : MonoBehaviour
     }
     public void Jump()
     {
-       
-            animator.Play("Player_Jump");
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-       
+        
+        animator.Play("Player_Jump");
+        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+
     }
 }
