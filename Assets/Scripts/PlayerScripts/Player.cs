@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         //set idle state
-        ChangeState(new IdleState());
+        ChangeState(new IdleState(this));
 
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -39,28 +39,30 @@ public class Player : MonoBehaviour
         //{
         //    rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);
         //}
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            float jumpInput = _inputAdapter.GetJumpInput();
 
 
 
-            if(jumpInput > 0)
-            {
-                ChangeState(new JumpState());
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    float jumpInput = _inputAdapter.GetJumpInput();
+        //    if(jumpInput > 0)
+        //    {
+        //        ChangeState(new JumpState());
+        //    }
+        //}
+
+        currentState.Update();
     }
 
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
     }
-    private void OnCollisionExit2D(Collision2D other)
+    public void OnCollisionExit2D(Collision2D other)
     {
         
             if (other.gameObject.CompareTag("Ground"))
@@ -81,9 +83,26 @@ public class Player : MonoBehaviour
     }
     public void Jump()
     {
-        
-        animator.Play("Player_Jump");
-        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        if (isGrounded)
+        {
+            animator.Play("Player_Jump");
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        }
+       
 
     }
+    public void Idle()
+    {      
+        Debug.Log("Idle");
+    }
+    public void checkJump()
+    {
+        if (rb.position.y >= maxY)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);
+            currentState.ExitState();
+
+        }      
+    }
+
 }

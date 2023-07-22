@@ -13,15 +13,27 @@ public class JumpState : CharacterState
     }
 
     public override void Update()
-    {
+    {   
         base.Update();
-        // X? lý logic khi nh v?t ?ang ??ng thái Jump
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log("cannot jump more");
+        }
+
+        character.checkJump();
+
+        //if(character.isGrounded == true)
+        //{
+        //    ExitState();
+        //}
+
     }
 
     public override void ExitState()
-    {
-        base.ExitState();
-        // C?p nh?t tr?ng thái và animation cho nhân v?t khi thoát kh?i tr?ng thái Jump
+    {   
+
+        character.ChangeState(new IdleState(character));
+
     }
 
 }

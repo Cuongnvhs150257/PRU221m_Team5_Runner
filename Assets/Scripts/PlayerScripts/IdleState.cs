@@ -5,9 +5,16 @@ using UnityEngine;
 public class IdleState : CharacterState
 {
     private Animator animator;
-    public override void EnterState(Player character)
+
+    public IdleState(Player character)
     {
+        this.character = character;
+    }
+
+    public override void EnterState(Player character)
+    {   
         base.EnterState(character);
+        character.Idle();
     }
 
     public override void Update()
@@ -15,7 +22,6 @@ public class IdleState : CharacterState
         base.Update();
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("Idle Sat");
             character.ChangeState(new JumpState());
         }
     }
