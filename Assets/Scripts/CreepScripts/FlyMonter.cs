@@ -17,11 +17,7 @@ public class FlyMonter : MonoBehaviour, IAnimal
         {
             objectPool.RecycleCreep(gameObject);
 
-            GameObject takedame = GameObject.FindGameObjectWithTag("Player");
-
-            takedame.transform.GetComponent<Player>().score += 1;
-
-           
+            GameObject takedame = GameObject.FindGameObjectWithTag("Player");           
 
             var healthcurrent = takedame.transform.GetComponent<HealthManager>().health;
             var isShiew = takedame.transform.GetComponent<HealthManager>().isShield;

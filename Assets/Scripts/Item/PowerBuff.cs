@@ -38,7 +38,8 @@ public class PowerBuff : ItemEffect
             GameObject gameManager = GameObject.FindGameObjectWithTag("gameManager");
             gameManager.GetComponent<CameraMovement>().CameraSpeed = 6f;
             GameObject spawnPoint = GameObject.FindGameObjectWithTag("spawnPoint");
-            spawnPoint.GetComponent<SpawnManager>().spawnRate = 2f;
+            Debug.Log(spawnPoint);
+            //spawnPoint.GetComponent<SpawnManager>().spawnRate = 2;
 
 
 

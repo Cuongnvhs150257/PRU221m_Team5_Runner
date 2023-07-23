@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public MonsterAbstractFactory monsterFactories;
 
     public int poolSize = 10;
-    public float spawnRate = 1f;
+    public float spawnRate;
     public float maxX;
     private float Y;
     public float minX;

@@ -31,7 +31,7 @@ public class JumpState :  CharacterState
         //{
         //    ExitState();
         //}
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             character.ChangeState(new IdleState(character));
         }
