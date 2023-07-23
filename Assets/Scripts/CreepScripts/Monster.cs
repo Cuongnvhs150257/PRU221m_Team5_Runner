@@ -21,8 +21,11 @@ public class Monster : MonoBehaviour, IAnimal
          
 
             var healthcurrent = takedame.transform.GetComponent<HealthManager>().health;
-
-            takedame.transform.GetComponent<HealthManager>().health = healthcurrent - 1;
+            var isShiew = takedame.transform.GetComponent<HealthManager>().isShield;
+            if (isShiew == false)
+            {
+                takedame.transform.GetComponent<HealthManager>().health = healthcurrent - 1;
+            }
 
         }
         if (collision.gameObject.CompareTag("Border"))

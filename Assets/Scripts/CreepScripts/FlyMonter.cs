@@ -21,9 +21,14 @@ public class FlyMonter : MonoBehaviour, IAnimal
 
             takedame.transform.GetComponent<Player>().score += 1;
 
-            var healthcurrent = takedame.transform.GetComponent<HealthManager>().health;
+           
 
-            takedame.transform.GetComponent<HealthManager>().health = healthcurrent - 1;
+            var healthcurrent = takedame.transform.GetComponent<HealthManager>().health;
+            var isShiew = takedame.transform.GetComponent<HealthManager>().isShield;
+            if (isShiew == false)
+            {
+                takedame.transform.GetComponent<HealthManager>().health = healthcurrent - 1;
+            }         
 
         }
         if (collision.gameObject.CompareTag("Border"))

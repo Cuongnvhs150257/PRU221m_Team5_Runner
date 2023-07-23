@@ -15,6 +15,7 @@ namespace Assets.Scripts
             {
                 return 1f;
             }
+            else
             return 0f;
         }
     }

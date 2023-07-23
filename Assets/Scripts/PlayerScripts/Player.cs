@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         MyscoreText.text = "Score: " + score.ToString();
         maxY = rb.transform.position.y + 3.5f;
 
-        _inputAdapter = new TouchScreenInputAdapter();
+        _inputAdapter = new KeyboardInputAdapter();
     }
 
     // Update is called once per frame
@@ -100,6 +100,8 @@ public class Player : MonoBehaviour
     {      
         Debug.Log("Idle");
     }
+
+    
     public void checkJump()
     {
         if (rb.position.y >= maxY)

@@ -8,6 +8,7 @@ public class PowerBuff : ItemEffect
     public bool heart;
     public bool shield;
     public bool ice;
+    private float shieldTimer = 0f;
 
     Time time;
 
@@ -30,6 +31,13 @@ public class PowerBuff : ItemEffect
             Debug.Log("Shield Activated");
             GameObject takedame = GameObject.FindGameObjectWithTag("Player");
             takedame.transform.GetComponent<HealthManager>().isShield = true;
+            shieldTimer = 5f;
+            shieldTimer -= Time.deltaTime;
+            if(shieldTimer <= 0f)
+            {
+                takedame.transform.GetComponent<HealthManager>().isShield = false;
+                Debug.Log("Shield deActivated");
+            }
         }
         else
         {
@@ -45,8 +53,6 @@ public class PowerBuff : ItemEffect
             //}
 
         }
-
-
 
     }
 

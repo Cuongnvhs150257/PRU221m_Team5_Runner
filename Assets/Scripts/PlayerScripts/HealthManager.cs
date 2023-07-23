@@ -34,11 +34,26 @@ public class HealthManager : MonoBehaviour
             //SceneManager.LoadScene("EndMenu");
             End();
         }
+        checkShiled();
     }
     public void End()
     {
         Destroy(this.gameObject);
         MenuManager.GoToMenu(MenuName.End);
     }
-   
+
+    public void checkShiled()
+    {
+        if (isShield == true)
+        {
+            StartCoroutine(ResetShield());
+        }
+    }
+    public IEnumerator ResetShield()
+    {
+        yield return new WaitForSeconds(5f);
+        isShield = false;
+        Debug.Log("Shield deActivated");
+    }
+
 }
