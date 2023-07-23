@@ -18,6 +18,8 @@ public class JumpState :  CharacterState
     public override void Update()
     {   
         base.Update();
+
+        
         if (Input.GetKeyDown(KeyCode.W))
         {
             Debug.Log("cannot jump more");
@@ -29,7 +31,10 @@ public class JumpState :  CharacterState
         //{
         //    ExitState();
         //}
-
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            character.ChangeState(new IdleState(character));
+        }
     }
 
     public override void ExitState()

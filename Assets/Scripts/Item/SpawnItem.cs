@@ -7,7 +7,7 @@ public class SpawnItem : MonoBehaviour
     public ItemAbstractFactory itemAbstractFactory;
 
     public int poolSize = 10;
-    public float spawnRate = 1f;
+    public float spawnRate = 2f;
     public float maxX;
     public float Y;
     public float minX;
