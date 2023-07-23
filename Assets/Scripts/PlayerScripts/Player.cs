@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         MyscoreText.text = "Score: " + score.ToString();
         maxY = rb.transform.position.y + 3.5f;
 
-        _inputAdapter = new KeyboardInputAdapter();
+        _inputAdapter = new TouchScreenInputAdapter();
     }
 
     // Update is called once per frame
@@ -85,8 +85,13 @@ public class Player : MonoBehaviour
     {
         if (isGrounded)
         {
-            animator.Play("Player_Jump");
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            float jumpInput = _inputAdapter.GetJumpInput();
+
+            if (jumpInput > 0)
+            {
+                animator.Play("Player_Jump");
+                rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            }      
         }
        
 

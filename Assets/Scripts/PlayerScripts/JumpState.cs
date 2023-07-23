@@ -1,9 +1,12 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpState : CharacterState
+public class JumpState :  CharacterState
 {
+    
+
     public override void EnterState(Player character)    
     {
         base.EnterState(character);

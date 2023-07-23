@@ -20,7 +20,8 @@ public class IdleState : CharacterState
     public override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.W))
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began || Input.GetKeyDown(KeyCode.W))
         {
             character.ChangeState(new JumpState());
         }
